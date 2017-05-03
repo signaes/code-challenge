@@ -1,63 +1,35 @@
-afio Desenvolvedor Sênior
+Maplink - Desafio Desenvolvedor Backend
 ======================================
 
-Esta página contém detalhes do desafio para desenvolvedores sêniors.
+Esta página contém detalhes do desafio para desenvolvedores backend.
 
-## Problema
+## Tarefa
 
-Uma equipe solicitou a criação de um componente para a realização de cálculos de valores totais da rota.
+Você precisa criar um algoritmo para o supercomputador da BatCaverna!
+Esse algoritmo sera responsavel por calcular a probabilidade de um supervilao atacar nas imediacoes de Gotham (Manhattan).
 
-O contrato do componente define como <b>entrada</b> os seguintes parâmetros:
+Lembre-se, esse algoritmo vai ser acessado por todos os Bat-dispositivos (Mobal).
 
-### Lista de endereços
+### Input
 
-Cada endereço contém os dados:
+O endereco ou as coordenadas do Bat-dispositivo.
 
-* Nome da rua/avenida;
-* Número;
-* Cidade;
-* Estado.
+### Output
 
-### Tipos de rota
+Cada ataque deve conter o supervilao e a lista de alvos com a probabilidade de ataque.
 
-Considere a relação de tipos de rota permitidos:
-
-* Rota padrão mais rápida;
-* Rota evitando o trânsito.
-
-O contrato de <b>saída</b> deste componente deve conter:
-
-### Valores totais da rota
-
-Neste item devem constar: 
-
-* Tempo total da rota;
-* Distância total;
-* Custo de combustível;
-* Custo total considerando pedágio.
-
-Deve-se utilizar os web services de Geocodificação e de Rotas da MapLink para realizar esta tarefa. 
-
-Você encontrará <b>detalhes de uso</b> nestes endereços:
-
-* <a href="http://dev.maplink.com.br/webservices/geocodificacao/" target="_blank">Geocodificação - dev.maplink.com.br/webservices/geocodificacao/</a>
-* <a href="http://dev.maplink.com.br/webservices/rotas/" target="_blank">Roteirização - dev.maplink.com.br/webservices/rotas</a>
-
-Para consumir os métodos dos serviços SOAP da MapLink é necessário utilizar a seguinte chave de acesso: c13iyCvmcC9mzwkLd0LCbCBHcXYD5mUA5m2jNGutNXK6NJc6NJt=
-
-Você tem a <b>liberdade de escolher e definir</b> sobre a linguagem de programação, frameworks, design e arquitetura a ser adotada. O único requisito é a disponibilização deste componente para a utilização em outro projeto qualquer (independente de linguagem de programação / plataforma / ambiente).
-
-Outros parâmetros dos serviços de Geocodificação e de Rotas, os quais não foram mencionados, não são relevantes para essa solução, sendo assim, você tem a liberdade de defini-los como preferir.
-
-## Envio da solução
-
-O compartilhamento do resultado produzido deve ser feito diretamente pelo GitHub. Para isso, faça um <a href="https://help.github.com/articles/fork-a-repo" target="_blank">fork</a> e nos envie sua versão com a devida implementação incluindo seu nome completo para identificação.
-
-O objetivo deste teste é avaliar como você irá considerar questões como arquitetura e design de software, modelagem e aplicação de técnicas e conceitos de programação, e não simplesmente resolver o problema proposto, visto que o mesmo não oferece dificuldades reais para implementação.
-
-Qualquer dúvida, você pode enviar um e-mail para rhti@maplink.com.br.
-
-Bom desafio!
-
-*Time Maplink*
-
+{
+    "supervilao": "Coringa",
+    "alvos": [{
+      "local":"International Bank Of Manhattan",
+      "coordenada": {"lat":-23.00001, "lng":-46.000033},
+      "probabilidade":75},{
+      "local":"International Bank Of Manhattan",
+      "coordenada": {"lat":-23.00001, "lng":-46.000033},
+      "probabilidade":75},{
+      "local":"International Bank Of Manhattan",
+      "coordenada": {"lat":-23.00001, "lng":-46.000033},
+      "probabilidade":75}
+    ]
+}
+      
