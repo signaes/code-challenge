@@ -6,6 +6,7 @@
 Ocorreu nesta madrugada uma fuga em massa da penitenciária de segurança máxima de Gotham City. Ainda não se sabe quantos detentos escaparam do complexo, mas informações não oficiais indicam que ao menos 8 supervilões estão foragidos.
 
 ![alt superviloes](public/images/mainvillains.png)
+
 _Charada, Era Venenosa, Arlequina, Coringa, Duas Caras, Pinguin, Mulher Gato e Espantalho_
 
 De acordo com informações do comissário James Gordon do  [GCPD](//en.wikipedia.org/wiki/Gotham_City_Police_Department), as celas não apresentavam sinais de arrombamento, e somente algumas cartas de baralho foram encontradas
