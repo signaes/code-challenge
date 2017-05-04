@@ -10,12 +10,7 @@ _Charada, Era Venenosa, Arlequina, Coringa, Duas Caras, Pinguin, Mulher Gato e E
 
 De acordo com informações do comissário James Gordon do  [GCPD](//en.wikipedia.org/wiki/Gotham_City_Police_Department), as celas não apresentavam sinais de arrombamento, e somente algumas cartas de baralho foram encontradas
 
-<div>
-  <div style="float: left; margin-right: 10px">
-    <img src="public/images/jamesgordon.png" />
-  </div>
-  <div>
-  "Durante a ronda noturna alguns oficiais relataram uma estranha quietude nos corredores do bloco de segurança máxima. Foram verificar e em seu último relato via rádio diziam que algumas celas estavam vazias, depois disso não respondiam mais. Hoje pela manhã foram encontrados acordados perto às celas delirando e com um sorriso estampado no rosto. Também foram encontradas algumas cartas de baralho."
-  </div>
-</div><br/>
+
+_"Durante a ronda noturna alguns oficiais relataram uma estranha quietude nos corredores do bloco de segurança máxima. Foram verificar e em seu último relato via rádio diziam que algumas celas estavam vazias, depois disso não respondiam mais. Hoje pela manhã foram encontrados acordados perto às celas delirando e com um sorriso estampado no rosto. Também foram encontradas algumas cartas de baralho" - James Gordon_
+
 Até o momento não houveram relatos de ocorrências relacionadas a fuga.
