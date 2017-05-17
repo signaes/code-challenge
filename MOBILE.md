@@ -1,1 +1,1 @@
-# Mobile code challenge ![alt Bat-logo](public/images/batlogo-small.png)
+# Mobile code challenge ![alt Batlogo](public/images/batlogo-small.png)

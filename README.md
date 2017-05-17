@@ -1,4 +1,4 @@
-# Maplink Code Challenge ![alt Bat-logo](public/images/batlogo-small.png)
+# Maplink Code Challenge ![alt Batlogo](public/images/batlogo-small.png)
 
 Leia as notícias de última hora do [jornal de Gotham](NEWS.md) !
 
