@@ -2,7 +2,7 @@
 
 <b>O homem morcego precisa de sua ajuda!</b>
 
-Você deve criar um algoritmo para o supercomputador da Batcaverna que deve ser capaz de calcular a probabilidade de seu arqui-inimigo Coringa atacar as imediações de Gotham.
+Você deve criar um algoritmo para o supercomputador da Batcaverna que deve ser capaz de calcular a probabilidade do arqui-inimigo Coringa atacar as imediações de Gotham.
 
 Este algorítimo deve esperar um endereço, uma localidade ou uma coordenada (a torre do relógio ou a posiçao atual do Coringa, por exemplo). Quando o input for um endereço ou uma localidade, você deve transformá-lo em uma coordenada (utilizando Google, Yahoo, Bing, etc).
 
