@@ -8,11 +8,11 @@ Este algorítimo deve esperar um endereço, uma localidade ou uma coordenada (a 
 
 Você irá utilizar esta coordenada para determinar a probabilidade de um ataque do Coringa nos [locais](https://gist.githubusercontent.com/pitteri/b0c06e2c9b89541559fb2d90c6ae7ccd/raw/8553d6bbbadde292548d66afd7923026ddd3e402/targets.json) próximos, dentro dos [limites de Gotham](https://gist.githubusercontent.com/pitteri/d56780d610cb8e0a43bfa94fc54b71cd/raw/dcdd965c84cd05d856ae32646be69868d4a80afa/gotham_bbox.json).
 
-A probabilidade se dá pela distância linear entre o Coringa e o alvo, ou seja, quanto mais próximo, maior a probabilidade de um ataque. Para calcular a distância linear utilize a [Fórmula de Haversine](https://pt.wikipedia.org/wiki/F%C3%B3rmula_de_Haversine). Considere o raio da Terra como 6371km, e para facilitar desconsidere a elevação nos cálculos!
+A probabilidade se dá pela distância linear entre o Coringa e o alvo, ou seja, quanto mais próximo, maior a probabilidade de um ataque. Para calcular a distância linear utilize a [Fórmula de Haversine](https://rosettacode.org/wiki/Haversine_formula). Considere o raio da Terra como 6371km, e para facilitar desconsidere a elevação nos cálculos!
 
 O raio de atuação do Coringa é de 2km, e a probabilidade máxima de ataque é de 95% nos casos em que o resultado seja maior que isso. (Afinal, quem entenderia o que se passa na cabeça do Coringa?!)
 
-> Lembre-se, este algoritmo vai ser acessado por todos os Batdispositivos.
+> Lembre-se: O Batman é muito exigente, inclusive com a qualidade dos códigos. Surpreenda-o!
 
 ### Input
 
