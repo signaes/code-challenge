@@ -15,3 +15,13 @@ Mantemos desafios com foco específico em cada área de conhecimento, escolha ab
 [Desafio front-end](FRONTEND.md)
 
 [Desafio mobile](MOBILE.md)
+
+## Instruções no README
+
+Descreva no arquivo README do seu code-challenge instruções importantes, como por exemplo:
+
+* Como compilar/iniciar o programa
+* Como utilizar os recursos
+* Descrição de peculiaridades
+* Listagem de requisitos
+* Etc.
