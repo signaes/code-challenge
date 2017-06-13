@@ -1,6 +1,6 @@
 # Back-end code challenge ![alt Batlogo](public/images/batlogo-small.png)
 
-<b>O homem morcego precisa de sua ajuda!
+<b>O homem morcego precisa de sua ajuda!</b>
 
 Você deve criar um algoritmo para o supercomputador da Batcaverna que deve ser capaz de calcular a probabilidade de seu arqui-inimigo Coringa atacar as imediações de Gotham.
 
