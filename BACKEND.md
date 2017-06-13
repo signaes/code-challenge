@@ -19,4 +19,4 @@ A coordenada deve estar dentro dos limites de Gotham, caso contrário, é precis
 
 Cada ataque deve conter a informacão do super-vilão e dos locais com a probabilidade de ataque que foi calculada.
 
-[Exemplo](https://gist.githubusercontent.com/pitteri/578a6801d6f504eda6f6ce84cad59f89/raw/60498482b132f2d530e4ac7edc76175cac616a9f/output.json)  
+[Exemplo](https://gist.githubusercontent.com/pitteri/578a6801d6f504eda6f6ce84cad59f89/raw)  
