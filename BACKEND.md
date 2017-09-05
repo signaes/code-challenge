@@ -1,32 +1,33 @@
 # Back-end code challenge ![alt Batlogo](public/images/batlogo-small.png)
 
-<b>O homem morcego precisa de sua ajuda!</b>
+Batman needs your help!
 
-Você deve criar um algoritmo para o supercomputador da Batcaverna que deve ser capaz de calcular a probabilidade do arqui-inimigo Coringa atacar as imediações de Gotham.
+You should create an algorithm for the Batcaverna supercomputer that should be able to calculate the probability of a super villain attacking Gotham.
 
-Este algorítimo deve esperar um endereço, uma localidade ou uma coordenada (a torre do relógio ou a posiçao atual do Coringa, por exemplo). Quando o input for um endereço ou uma localidade, você deve transformá-lo em uma coordenada (utilizando Google, Yahoo, Bing, etc).
+This algorithm must wait for an address, a location or a coordinate (the clock tower or the current position of the villain, for example). When the input is an address or a location, you must transform it into a coordinate (using Google, Maplink, Yahoo, Bing, etc).
 
-Você irá utilizar esta coordenada para determinar a probabilidade de um ataque do Coringa nos [locais](https://gist.githubusercontent.com/pitteri/b0c06e2c9b89541559fb2d90c6ae7ccd/raw/8553d6bbbadde292548d66afd7923026ddd3e402/targets.json) próximos, dentro dos [limites de Gotham](https://gist.githubusercontent.com/pitteri/d56780d610cb8e0a43bfa94fc54b71cd/raw/dcdd965c84cd05d856ae32646be69868d4a80afa/gotham_bbox.json).
+You will use this coordinate to determine the probability of an attack on nearby  [locations](https://gist.githubusercontent.com/pitteri/b0c06e2c9b89541559fb2d90c6ae7ccd/raw/8553d6bbbadde292548d66afd7923026ddd3e402/targets.json) within the [Gotham boundaries](https://gist.githubusercontent.com/pitteri/d56780d610cb8e0a43bfa94fc54b71cd/raw/dcdd965c84cd05d856ae32646be69868d4a80afa/gotham_bbox.json).
 
-A probabilidade se dá pela distância linear entre o Coringa e o alvo, ou seja, quanto mais próximo, maior a probabilidade de um ataque. Para calcular a distância linear utilize a [Fórmula de Haversine](https://rosettacode.org/wiki/Haversine_formula). Considere o raio da Terra como 6371km, e para facilitar desconsidere a elevação nos cálculos!
+The probability is given by the linear distance between the villain and the target, that is, the closer, greater is the probability of an attack. To calculate the linear distance use the [Haversine Formula](https://rosettacode.org/wiki/Haversine_formula). Consider the radius of the Earth as 6371km, and to facilitate disregard the elevation in the calculations!
 
-O raio de atuação do Coringa é de 2km, e a probabilidade máxima de ataque é de 95% nos casos em que o resultado seja maior que isso. (Afinal, quem entenderia o que se passa na cabeça do Coringa?!)
+The range of action of the villain is 2km, and the maximum probability of attack is 95% in cases where the result is greater than that. (After all, who would understand what goes on in the head of a super villain ?!)
 
-> Lembre-se: O Batman é muito exigente, inclusive com a qualidade dos códigos. Surpreenda-o!
+> Remember, Batman is very demanding, even with the quality of the codes. Surprise him!
 
 ### Input
 
-O endereço, localidade ou coordenada do vilão.
+The villain address, location or coordinate.
 
-#### Endpoints:
-1) GET /address?q=\<endereço\>
-2) GET /location?q=\<localidade\>
-3) GET /coordinate?q=\<latitude\>,\<longitude\>
+#### Sample:
+* **GET** /address?q=_Rua Fidêncio Ramos, 302 - São Paulo_
+* **GET** /location?q=_Maplink_
+* **GET** /coordinate?q=_-23.594684,-46.685900_
 
-A coordenada deve estar dentro dos limites de Gotham, caso contrário, é preciso notificar de alguma forma.
+The coordinate must be within the Gotham city boundaries, otherwise it must be notified in some way.
 
 ### Output
 
-Cada resposta deve conter a localização do Coringa e as informações dos locais que sofrem risco de ataque.
+Each response should contain the location of the villain and the information about the locations that are at risk of attack.
 
-[Exemplo](https://gist.githubusercontent.com/pitteri/578a6801d6f504eda6f6ce84cad59f89/raw) com dados fictícios.
+
+[Sample](https://gist.githubusercontent.com/pitteri/578a6801d6f504eda6f6ce84cad59f89/raw).
