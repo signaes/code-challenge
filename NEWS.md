@@ -3,15 +3,15 @@
 
  ### Arkham Asylum Massive Escape!
 
-Ocorreu nesta madrugada uma fuga em massa da penitenciária de segurança máxima de Gotham City. Ainda não se sabe quantos detentos escaparam do complexo, mas informações não oficiais indicam que ao menos 8 supervilões estão foragidos.
+There was a mass escape from Gotham City's maximum security penitentiary this dawn. There is still no knowledge of how many detainees escaped from the complex, but not official sources indicates that 8 supervillains are fugitives.
 
-![alt superviloes](public/images/mainvillains.png)
+![alt supervillains](public/images/mainvillains.png)
 
-_Charada, Era Venenosa, Arlequina, Coringa, Duas Caras, Pinguin, Mulher Gato e Espantalho_
+_Question, Poison Ivy, Harley Quinn, Joker, Two Face, Penguin, Cat Woman and Scarecrow_
 
-De acordo com informações do comissário James Gordon do  [GCPD](//en.wikipedia.org/wiki/Gotham_City_Police_Department), as celas não apresentavam sinais de arrombamento, e somente algumas cartas de baralho foram encontradas
+According to commissioner James Gordon from [GCPD](//en.wikipedia.org/wiki/Gotham_City_Police_Department), the cells showed no signs of break-in, and only a few playing cards were found.
 
 
-_"Durante a ronda noturna alguns oficiais relataram uma estranha quietude nos corredores do bloco de segurança máxima. Foram verificar e em seu último relato via rádio diziam que algumas celas estavam vazias, depois disso não respondiam mais. Hoje pela manhã foram encontrados acordados perto às celas delirando e com um sorriso estampado no rosto. Também foram encontradas algumas cartas de baralho" - James Gordon_
+_"During the night round some officers reported a strange stillness in the corridors of the maximum security block. They went to check and in their last radio report they said that some cells were empty, after that they did not respond anymore. This morning they were found near the cells raving and with a smile on their faces. Some playing cards were also found." - James Gordon_
 
-Até o momento não houveram relatos de ocorrências relacionadas a fuga.
+Until now, there are no reports of occurrences related to the escape.

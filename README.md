@@ -1,27 +1,25 @@
 # Maplink Code Challenge ![alt Batlogo](public/images/batlogo-small.png)
 
-Leia as notícias de última hora do [jornal de Gotham](NEWS.md) !
+Read the latest news of the [Gotham City Gazette](NEWS.md) !
 
-## Propósito dos nossos desafios
+## Purpose of our challenges
 
-De acordo com seus skills, queremos entender a forma como você pensa para resolver problemas, como você organiza seu código e quais tecnologias você se sente mais confortável para utilizar no dia-a-dia.
+According to your skills, we want to understand the way you think to solve problems, how you organize your code and what technologies you feel more comfortable to use in the daily tasks.
 
-## Escolha seu desafio
+## Choose your challenge
 
-Mantemos desafios com foco específico em cada área de conhecimento, escolha abaixo o que estiver mais aderente com as suas características e anseios profissionais:
+We built challenges with specific focus in each knowledge area, choose the one that is most closely associated with your professional characteristics and wishes:
 
-[Desafio back-end](BACKEND.md)
+[Back-end challenge](BACKEND.md)
 
-[Desafio front-end](FRONTEND.md)
+[Front-end challenge](FRONTEND.md)
 
-[Desafio mobile](MOBILE.md)
+## Instructions in your README
 
-## Instruções no README
+Describe in README.md file important instructions, for example:
 
-Descreva no arquivo README do seu code-challenge instruções importantes, como por exemplo:
-
-* Como compilar/iniciar o programa
-* Como utilizar os recursos
-* Descrição de peculiaridades
-* Listagem de requisitos
+* How to compile/start your program.
+* How to use the resources
+* Description of peculiarities
+* List of requirements
 * Etc.
