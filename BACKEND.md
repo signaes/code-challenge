@@ -27,7 +27,7 @@ The coordinate must be within the Gotham city boundaries, otherwise it must be n
 
 ### Output
 
-Each response should contain the location of the villain and the information about the locations that are under the risk of attack.
+Each response should contain the location of the villain and the information about the locations that may be under attack.
 
 
 [Sample](https://gist.githubusercontent.com/pitteri/578a6801d6f504eda6f6ce84cad59f89/raw).

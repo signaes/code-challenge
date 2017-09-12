@@ -16,7 +16,7 @@ We built challenges with specific focus in each knowledge area, choose the one t
 
 ## Instructions in your README
 
-Describe in README.md file important instructions, for example.
+Describe in README.md file important instructions, for example:
 
 * How to compile/start your program.
 * How to use the resources
