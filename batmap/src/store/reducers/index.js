@@ -1,6 +1,9 @@
 import {
   INITIALIZE_MAP,
   ADD_MARKER,
+  ADD_VILLAIN,
+  ADD_TARGETS,
+  SELECT_TARGET,
   CHANGE_BATMAN_POSITION
 } from '../actions/types';
 import { getCurrentState, createReducer, getNewState } from '../utils';
@@ -22,14 +25,22 @@ const initialBatmanState = {
   }
 };
 
+const initialVillainState = {
+  name: '',
+  location: {},
+  targets: {
+    active: {},
+    list: []
+  }
+};
+
+
 const map = (state = initialMapState, action) => {
   const reducers = {};
 
   reducers[INITIALIZE_MAP] = state => {
     const { mapsApi } = state;
-    console.log(mapsApi);
     const { container, center } = action.payload;
-    console.log(container, center);
     const mapObject = new mapsApi.Map(
       container,
       { zoom: 16, center }
@@ -39,8 +50,6 @@ const map = (state = initialMapState, action) => {
   };
 
   reducers[ADD_MARKER] = state => {
-    console.log('ADD_MARKER state === ', state);
-
     const { mapsApi, mapObject } = state;
     const list = clone(
       Maybe(state)
@@ -56,18 +65,20 @@ const map = (state = initialMapState, action) => {
       map: mapObject,
       title: Maybe(action.payload).get('title').value
     });
+    const infoWindow = new mapsApi.InfoWindow;
 
-    marker.setMap(mapObject);
+    mapsApi.event.addListener(marker, 'click', function() {
+      infoWindow.setContent(action.payload.title);
+      infoWindow.open(mapObject, marker);
+    });
 
-    console.log('\n\n\n\n\nmapObject is =', mapObject, '\n\n\n\n\n');
-
-    list.push(marker);
+    list.push({ marker, lat: action.payload.lat, lng: action.payload.lng });
+    list.forEach(({ marker, lat, lng }) => {
+      marker.setMap(mapObject);
+      marker.setPosition({ lat, lng });
+    });
 
     const markers = { list };
-
-    console.log('getNewState ===',
-      getNewState(state, { markers })
-    );
 
     return getNewState(state, { markers, mapObject });
   };
@@ -88,4 +99,37 @@ const batman = (state = initialBatmanState, action) => {
   return createReducer(reducers)(getCurrentState(state), action);
 };
 
-export default { map, batman };
+const villain = (state = initialVillainState, action) => {
+  const reducers = {};
+
+  reducers[ADD_VILLAIN] = state => getNewState(
+    state,
+    {
+      name: action.payload.name,
+      location: action.payload.location
+    }
+  );
+
+  reducers[ADD_TARGETS] = state => getNewState(
+    state,
+    {
+      targets: {
+        active: action.payload.targets[0],
+        list: action.payload.targets
+      }
+    }
+  );
+
+  reducers[SELECT_TARGET] = state => getNewState(
+    state,
+    {
+      targets: {
+        active: action.payload.target
+      }
+    }
+  );
+
+  return createReducer(reducers)(getCurrentState(state), action);
+};
+
+export default { map, batman, villain };
