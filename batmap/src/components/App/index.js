@@ -6,14 +6,22 @@ import Villain from '../Villain';
 import {
   addMarker,
   initializeMap,
-  findVillain
+  findVillain,
+  selectTarget
 } from '../../store/actions';
 import displayFloat from '../../utils/displayFloat';
 import logo from '../../logo.svg';
 import './styles.css';
 
 const App = props => {
-  const { map, batman, villain, initializeMap, addMarker, findVillain } = props;
+  const {
+    map,
+    batman,
+    villain,
+    initializeMap,
+    addMarker,
+    findVillain,
+    selectTarget } = props;
   const { mapsApi } = map;
 
   return (
@@ -25,7 +33,7 @@ const App = props => {
           You are currently at lat: { displayFloat(batman.currentPosition.lat) } & lng: { displayFloat(batman.currentPosition.lng) }
         </p>
       </header>
-      { villain ? <Villain villain={villain} /> : null }
+      { villain ? <Villain villain={villain} selectTarget={selectTarget} /> : null }
       <Map
         mapsApi={mapsApi}
         initializeMap={initializeMap}
@@ -40,7 +48,8 @@ const mapStateToProps = state => ({ map: state.map, batman: state.batman, villai
 const mapDispatchToProps = dispatch => ({
   addMarker: ({ lat, lng, title }) => dispatch(addMarker({ lat, lng, title })),
   findVillain: ({ lat, lng }) => dispatch(findVillain({ lat, lng })),
-  initializeMap: ({ container, center }) => dispatch(initializeMap({ container, center }))
+  initializeMap: ({ container, center }) => dispatch(initializeMap({ container, center })),
+  selectTarget: params => dispatch(selectTarget(params))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
