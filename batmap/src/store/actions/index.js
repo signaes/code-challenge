@@ -30,9 +30,9 @@ export const initializeMap = ({ container, center }) => ({
   payload: { container, center }
 });
 
-export const addMarker = ({ lat, lng, title }) => ({
+export const addMarker = ({ lat, lng, title, open }) => ({
   type: ADD_MARKER,
-  payload: { lat, lng, title }
+  payload: { lat, lng, title, open }
 });
 
 export const addVillain = ({ name, location }) => ({
@@ -45,20 +45,13 @@ export const addTargets = ({ targets }) => ({
   payload: { targets }
 });
 
-export const selectTarget = ({ target }) => ({
-  type: SELECT_TARGET,
-  payload: { target }
-});
+
 
 const sortByMostProbableTarget = sortWith([
   descend(prop('probability'))
 ]);
 
-const isFirst = i => i === 0;
-const isLast = (a, i) => i === a.length - 1;
-
 function attachInstructionText({ stepDisplay, marker, content, map, mapsApi }) {
-  console.log(content);
   mapsApi.event.addListener(marker, 'click', function() {
     // Open an info window when the marker is clicked on, containing the text
     // of the step.
@@ -67,14 +60,13 @@ function attachInstructionText({ stepDisplay, marker, content, map, mapsApi }) {
   });
 }
 
-const infoWindowContent = ({ title, instructions }) => `
-  ${ title ? `<header><h3>${title}</h3></header>` : '' }
+const infoWindowContent = ({ instructions }) => `
   <p>
     ${instructions}
   </p>
 `;
 
-function showSteps({ directionResult, markerArray, stepDisplay, map, mapsApi, villain }) {
+function showSteps({ directionResult, markerArray, stepDisplay, map, mapsApi }) {
   // For each step, place a marker, and add the text to the marker's infowindow.
   // Also attach the marker to an array so we can keep track of it and remove it
   // when calculating new routes.
@@ -96,7 +88,7 @@ function showSteps({ directionResult, markerArray, stepDisplay, map, mapsApi, vi
   }
 }
 
-function calculateAndDisplayRoute({ directionsDisplay, directionsService, markerArray, stepDisplay, map, origin, destination, mapsApi, villain }) {
+function calculateAndDisplayRoute({ directionsDisplay, directionsService, markerArray, stepDisplay, map, origin, destination, mapsApi }) {
   // First, remove any existing markers from the map.
   for (let i = 0; i < markerArray.length; i++) {
     markerArray[i].setMap(null);
@@ -107,16 +99,43 @@ function calculateAndDisplayRoute({ directionsDisplay, directionsService, marker
     destination,
     travelMode: 'DRIVING'
   }, function(response, status) {
-    console.log(response, status);
     if (status === 'OK') {
-      console.log('response', response);
-
       directionsDisplay.setDirections(response);
-      showSteps({ directionResult: response, markerArray, stepDisplay, map, mapsApi, villain });
+      showSteps({ directionResult: response, markerArray, stepDisplay, map, mapsApi });
     } else {
       window.alert('Directions request failed due to ' + status);
     }
   });
+}
+
+function setTarget({ map, batman, targets, target, dispatch }) {
+  const { mapsApi, mapObject } = map;
+  const targetsByProbability = sortByMostProbableTarget(targets);
+
+  dispatch(addTargets({ targets: targetsByProbability }));
+
+  const markerArray = [];
+  const directionsService = new mapsApi.DirectionsService;
+  const directionsDisplay = new mapsApi.DirectionsRenderer({ map: mapObject });
+  const stepDisplay = new mapsApi.InfoWindow;
+
+  calculateAndDisplayRoute({
+    directionsDisplay,
+    directionsService,
+    markerArray,
+    stepDisplay,
+    map: mapObject,
+    mapsApi,
+    origin: new mapsApi.LatLng(batman.currentPosition.lat, batman.currentPosition.lng),
+    destination: new mapsApi.LatLng(target.location.lat, target.location.lng)
+  });
+
+  dispatch(addMarker({
+    lat: batman.currentPosition.lat,
+    lng: batman.currentPosition.lng,
+    title: '<strong>Batman</strong>, you are here',
+    open: true
+  }));
 }
 
 const fetchVillain = (dispatch, getState, { lat, lng }) => {
@@ -124,46 +143,19 @@ const fetchVillain = (dispatch, getState, { lat, lng }) => {
 
   villains({ lat, lng })
     .then(({ data }) => {
-      console.log(data);
-
       const { villain, targets } = data;
-      const { name, location } = villain;
-      const { lat, lng } = location;
       const { map, batman } = getState();
-      const { mapsApi, mapObject } = map;
       const targetsByProbability = sortByMostProbableTarget(targets);
 
       dispatch(addVillain(villain));
-      dispatch(addTargets({ targets: targetsByProbability }));
-
-      console.log(pluck('probability')(targets));
-
-      console.log('targetsByProbability', targetsByProbability);
-
-      const markerArray = [];
-      const directionsService = new mapsApi.DirectionsService;
-      const directionsDisplay = new mapsApi.DirectionsRenderer({ map: mapObject });
-      const stepDisplay = new mapsApi.InfoWindow;
-
-
-      calculateAndDisplayRoute({
-        directionsDisplay,
-        directionsService,
-        markerArray,
-        stepDisplay,
-        map: mapObject,
-        mapsApi,
-        villain,
-        origin: new mapsApi.LatLng(batman.currentPosition.lat, batman.currentPosition.lng),
-        destination: new mapsApi.LatLng(targetsByProbability[0].location.lat, targetsByProbability[0].location.lng)
+      setTarget({
+        map,
+        batman,
+        targets: targetsByProbability,
+        target: targetsByProbability[0],
+        dispatch
       });
 
-      // dispatch(addMarker({ lat, lng, title: `<strong>${name}</strong> is here` }));
-      dispatch(addMarker({
-        lat: batman.currentPosition.lat,
-        lng: batman.currentPosition.lng,
-        title: '<strong>Batman</strong>, you are here'
-      }));
       dispatch(notFetching);
     })
     .catch(e => {
@@ -173,7 +165,27 @@ const fetchVillain = (dispatch, getState, { lat, lng }) => {
     });
 };
 
+const changeTarget = (dispatch, getState, { target }) => {
+  const { map, batman, villain } = getState();
+  const { targets } = villain;
+
+  setTarget({
+    map,
+    batman,
+    targets: targets.list,
+    target,
+    dispatch
+  });
+
+  dispatch({
+    type: SELECT_TARGET,
+    payload: { target }
+  });
+};
+
 export const findVillain = params => (dispatch, getState) => fetchVillain(dispatch, getState, params);
+
+export const selectTarget = params => (dispatch, getState) => changeTarget(dispatch, getState, params);
 
 export const changeBatmanPosition = ({ lat, lng }) => {
   const newPosition = batman.getCurrentPosition();
