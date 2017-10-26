@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+  height: auto;
+  overflow: hidden;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App .Map {
+  float: right;
+}
+
+.App .Villain {
+  float: left;
+  background-color: #222;
+  color: #fff;
+}
+
+.App .Targets__list {
+  padding: 0;
+  margin: 0;
+}
+
+.App .Target {
+  list-style: none;
+}
