@@ -9,6 +9,8 @@ class Map extends Component {
     const { currentPosition } = this.props.batman;
     const { lat, lng } = currentPosition;
 
+    this.container.style.height = `${document.body.offsetHeight}px`;
+
     initializeMap({
       container: this.container,
       center: currentPosition
