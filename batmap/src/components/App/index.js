@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Map from '../Map';
+import Villain from '../Villain';
 import {
   addMarker,
   initializeMap,
@@ -11,7 +12,7 @@ import logo from '../../logo.svg';
 import './styles.css';
 
 const App = props => {
-  const { map, batman, initializeMap, addMarker, findVillain } = props;
+  const { map, batman, villain, initializeMap, addMarker, findVillain } = props;
   const { mapsApi } = map;
 
   return (
@@ -23,6 +24,7 @@ const App = props => {
       <p className="App-intro">
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
+      { villain ? <Villain villain={villain} /> : null }
       <Map
         mapsApi={mapsApi}
         initializeMap={initializeMap}
@@ -33,7 +35,7 @@ const App = props => {
   );
 };
 
-const mapStateToProps = state => ({ map: state.map, batman: state.batman });
+const mapStateToProps = state => ({ map: state.map, batman: state.batman, villain: state.villain });
 const mapDispatchToProps = dispatch => ({
   addMarker: ({ lat, lng, title }) => dispatch(addMarker({ lat, lng, title })),
   findVillain: ({ lat, lng }) => dispatch(findVillain({ lat, lng })),
