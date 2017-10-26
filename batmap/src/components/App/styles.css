@@ -23,14 +23,35 @@
   font-size: large;
 }
 
+.App h1,
+.App h2,
+.App h3,
+.App h4,
+.App h5,
+.App h6 {
+  margin: .5em 0;
+}
+
 .App .Map {
   float: right;
+  width: 75%;
+  min-height: 500px;
 }
 
 .App .Villain {
+  width: 25%;
   float: left;
   background-color: #222;
   color: #fff;
+}
+
+.App .Villain__header {
+  text-align: left;
+}
+
+.App .Targets,
+.App .Target {
+  text-align: left;
 }
 
 .App .Targets__list {
@@ -40,4 +61,13 @@
 
 .App .Target {
   list-style: none;
+  cursor: pointer;
 }
+
+.App .Villain__header,
+.App .Targets__title,
+.App .Target {
+  padding: 24px;
+  margin: 0;
+}
+
