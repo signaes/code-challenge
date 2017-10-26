@@ -8,7 +8,6 @@ class Map extends Component {
     const { initializeMap, addMarker, findVillain } = this.props;
     const { currentPosition } = this.props.batman;
     const { lat, lng } = currentPosition;
-    console.log('Batman you’re at', currentPosition);
 
     initializeMap({
       container: this.container,
