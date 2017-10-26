@@ -1,0 +1,31 @@
+{
+  "name": "batmap",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.17.0",
+    "prop-types": "^15.6.0",
+    "ramda": "^0.25.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.14",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "spirals": "^0.0.9"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint:js": "eslint -c .eslintrc.js src",
+    "lint:js:watch": "esw -w src"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "eslint": "^4.9.0",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-watch": "^3.1.3"
+  }
+}
