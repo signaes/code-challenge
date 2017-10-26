@@ -1,4 +1,4 @@
-/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "React|Map" }]*/
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "React|Map|Villain" }]*/
 import React from 'react';
 import { connect } from 'react-redux';
 import Map from '../Map';
@@ -8,6 +8,7 @@ import {
   initializeMap,
   findVillain
 } from '../../store/actions';
+import displayFloat from '../../utils/displayFloat';
 import logo from '../../logo.svg';
 import './styles.css';
 
@@ -20,6 +21,9 @@ const App = props => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1 className="App-title">Greetings Batman</h1>
+        <p>
+          You are currently at lat: { displayFloat(batman.currentPosition.lat) } & lng: { displayFloat(batman.currentPosition.lng) }
+        </p>
       </header>
       { villain ? <Villain villain={villain} /> : null }
       <Map
