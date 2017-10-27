@@ -38,6 +38,7 @@ const App = props => {
       </header>
       <Search
         initializeMap={initializeMap}
+        findVillain={findVillain}
         map={map}
         search={search}
         setSearchLat={setSearchLat}
