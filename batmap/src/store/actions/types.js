@@ -7,3 +7,5 @@ export const ADD_VILLAIN = 'addVillain';
 export const ADD_TARGETS = 'addTargets';
 export const SELECT_TARGET = 'selectTarget';
 export const CHANGE_BATMAN_POSITION = 'changeBatmanPosition';
+export const SET_SEARCH_LAT = 'setSearchLat';
+export const SET_SEARCH_LNG = 'setSearchLng';
