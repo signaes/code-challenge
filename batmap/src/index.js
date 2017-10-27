@@ -49,4 +49,4 @@ load(`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}`)
       document.getElementById('root')
     );
   })
-  .catch(console.log);
+  .catch(() => {});
