@@ -28,6 +28,10 @@ const initialState = maps => ({
       active: {},
       list: []
     }
+  },
+  search: {
+    lat: 0,
+    lng: 0
   }
 });
 
