@@ -9,7 +9,9 @@ import {
   addMarker,
   initializeMap,
   findVillain,
-  selectTarget
+  selectTarget,
+  setSearchLat,
+  setSearchLng
 } from '../../store/actions';
 import displayFloat from '../../utils/displayFloat';
 import './styles.css';
@@ -19,10 +21,14 @@ const App = props => {
     map,
     batman,
     villain,
+    search,
     initializeMap,
     addMarker,
     findVillain,
-    selectTarget } = props;
+    selectTarget,
+    setSearchLat,
+    setSearchLng
+  } = props;
   const { mapsApi } = map;
 
   return (
@@ -30,7 +36,12 @@ const App = props => {
       <header className="App__header">
         <Batlogo />
       </header>
-      <Search />
+      <Search
+        initializeMap={initializeMap}
+        map={map}
+        search={search}
+        setSearchLat={setSearchLat}
+        setSearchLng={setSearchLng} />
       <div className="Batman--info">
         <h1 className="App__title">Batmap</h1>
         <p className="App__current-position">
@@ -48,12 +59,20 @@ const App = props => {
   );
 };
 
-const mapStateToProps = state => ({ map: state.map, batman: state.batman, villain: state.villain });
+const mapStateToProps = state => ({
+  map: state.map,
+  batman: state.batman,
+  villain: state.villain,
+  search: state.search
+});
+
 const mapDispatchToProps = dispatch => ({
   addMarker: ({ lat, lng, title }) => dispatch(addMarker({ lat, lng, title })),
   findVillain: ({ lat, lng }) => dispatch(findVillain({ lat, lng })),
   initializeMap: ({ container, center }) => dispatch(initializeMap({ container, center })),
-  selectTarget: params => dispatch(selectTarget(params))
+  selectTarget: params => dispatch(selectTarget(params)),
+  setSearchLat: params => dispatch(setSearchLat(params)),
+  setSearchLng: params => dispatch(setSearchLng(params)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
