@@ -1,8 +1,10 @@
-/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "React|Map|Villain" }]*/
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "React|Map|Villain|Search|Batlogo" }]*/
 import React from 'react';
 import { connect } from 'react-redux';
 import Map from '../Map';
 import Villain from '../Villain';
+import Search from '../Search';
+import Batlogo from '../Batlogo';
 import {
   addMarker,
   initializeMap,
@@ -10,7 +12,6 @@ import {
   selectTarget
 } from '../../store/actions';
 import displayFloat from '../../utils/displayFloat';
-import logo from '../../logo.svg';
 import './styles.css';
 
 const App = props => {
@@ -26,13 +27,16 @@ const App = props => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Greetings Batman</h1>
-        <p>
-          You are currently at lat: { displayFloat(batman.currentPosition.lat) } & lng: { displayFloat(batman.currentPosition.lng) }
-        </p>
+      <header className="App__header">
+        <Batlogo />
       </header>
+      <Search />
+      <div className="Batman--info">
+        <h1 className="App__title">Batmap</h1>
+        <p className="App__current-position">
+          <span className="App__current-position__prefix">You are now at: </span>{ displayFloat(batman.currentPosition.lat) }, { displayFloat(batman.currentPosition.lng) }
+        </p>
+      </div>
       { villain ? <Villain villain={villain} selectTarget={selectTarget} /> : null }
       <Map
         mapsApi={mapsApi}
