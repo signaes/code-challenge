@@ -13,11 +13,11 @@ class Search extends React.Component {
   }
 
   setSearchLat() {
-    this.props.setSearchLat(this.lat.value);
+    this.props.setSearchLat({ lat: this.lat.value });
   }
 
   setSearchLng() {
-    this.props.setSearchLng(this.lng.value);
+    this.props.setSearchLng({ lng: this.lng.value });
   }
 
   initializeMap() {
@@ -28,6 +28,11 @@ class Search extends React.Component {
           lat: this.props.search.lat,
           lng: this.props.search.lng
         }
+      });
+
+      this.props.findVillain({
+        lat: this.props.search.lat,
+        lng: this.props.search.lng
       });
     }
   }
