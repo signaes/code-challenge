@@ -4,7 +4,9 @@ import {
   ADD_VILLAIN,
   ADD_TARGETS,
   SELECT_TARGET,
-  CHANGE_BATMAN_POSITION
+  CHANGE_BATMAN_POSITION,
+  SET_SEARCH_LAT,
+  SET_SEARCH_LNG
 } from '../actions/types';
 import { getCurrentState, createReducer, getNewState } from '../utils';
 import { clone } from 'ramda';
@@ -32,6 +34,11 @@ const initialVillainState = {
     active: {},
     list: []
   }
+};
+
+const initialSearchState = {
+  lat: 0,
+  lng: 0
 };
 
 
@@ -132,4 +139,24 @@ const villain = (state = initialVillainState, action) => {
   return createReducer(reducers)(getCurrentState(state), action);
 };
 
-export default { map, batman, villain };
+const search = (state = initialSearchState, action) => {
+  const reducers = {};
+
+  reducers[SET_SEARCH_LAT] = state => getNewState(
+    state,
+    {
+      lat: action.payload.lat
+    }
+  );
+
+  reducers[SET_SEARCH_LNG] = state => getNewState(
+    state,
+    {
+      lng: action.payload.lng
+    }
+  );
+
+  return createReducer(reducers)(getCurrentState(state), action);
+};
+
+export default { map, batman, villain, search };
