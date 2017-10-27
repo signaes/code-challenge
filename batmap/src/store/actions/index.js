@@ -7,11 +7,13 @@ import {
   ADD_VILLAIN,
   ADD_TARGETS,
   SELECT_TARGET,
-  CHANGE_BATMAN_POSITION
+  CHANGE_BATMAN_POSITION,
+  SET_SEARCH_LAT,
+  SET_SEARCH_LNG
 } from './types';
 import villains from '../../resources/villains';
 import batman from '../../resources/batman';
-import { pluck, sortWith, descend, prop } from 'ramda';
+import { sortWith, descend, prop } from 'ramda';
 
 export const fetching = {
   type: FETCHING
@@ -45,7 +47,15 @@ export const addTargets = ({ targets }) => ({
   payload: { targets }
 });
 
+export const setSearchLat = ({ lat }) => ({
+  type: SET_SEARCH_LAT,
+  payload: { lat }
+});
 
+export const setSearchLng = ({ lng }) => ({
+  type: SET_SEARCH_LNG,
+  payload: { lng }
+});
 
 const sortByMostProbableTarget = sortWith([
   descend(prop('probability'))
@@ -158,8 +168,7 @@ const fetchVillain = (dispatch, getState, { lat, lng }) => {
 
       dispatch(notFetching);
     })
-    .catch(e => {
-      console.log(e);
+    .catch(() => {
       dispatch(notFound);
       dispatch(notFetching);
     });
