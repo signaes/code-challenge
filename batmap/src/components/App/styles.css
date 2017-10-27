@@ -4,49 +4,106 @@
   overflow: hidden;
 }
 
-.App-logo {
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 .App h1,
 .App h2,
 .App h3,
 .App h4,
 .App h5,
 .App h6 {
-  margin: .5em 0;
+  margin: 0;
+}
+
+.App__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100%;
+}
+
+.App .Batlogo--container {
+  margin: 8px auto;
+  position: absolute;
+  left: 50%;
+  margin-left: -37px;
+}
+
+.App .Batlogo {
+  fill: #000;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .App .Map {
-  float: right;
-  width: 75%;
+  width: 100%;
   min-height: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.App .Search {
+  position: absolute;
+  z-index: 100;
+  top: 10px;
+  right: 54px;
+}
+
+.App .Search .Button,
+.App .Search__inputs-container {
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.App__title {
+  font-size: 14px;
+  font-weight: normal;
+  text-align: left;
+  margin: 0;
+}
+
+.App__current-position {
+  margin: 0;
+  text-align: left;
+  color: #5d5d5d;
+  font-family: monospace;
+  top: 0;
+  right: 10px;
+  position: absolute;
+}
+
+.App .Batman--info {
+  position: absolute;
+  z-index: 100;
+  width: 400px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  top: 10px;
+  height: 31px;
+  left: 124px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 2px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+  line-height: 31px;
 }
 
 .App .Villain {
   width: 25%;
-  float: left;
+  min-width: 420px;
+  position: absolute;
+  top: 54px;
+  left: 10px;
+  z-index: 100;
   background-color: #222;
   color: #fff;
+  border-radius: 2px;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+  transition: all ease .4s;
 }
 
-.App .Villain__header {
-  text-align: left;
+.App .Villain:hover {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .App .Targets,
@@ -64,10 +121,181 @@
   cursor: pointer;
 }
 
-.App .Villain__header,
-.App .Targets__title,
-.App .Target {
-  padding: 24px;
+.App .Villain__header {
+  text-align: left;
+  padding: 24px 24px 12px 24px;
   margin: 0;
 }
 
+.App .Villain__header h2 {
+  color: #0ADBDB;
+}
+
+.App .Targets {
+  position: relative;
+}
+
+.App .Targets__title {
+  margin: 0 0 24px;
+  padding: 0 24px;
+  position: absolute;
+  right: 0;
+  top: -31px;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: monospace;
+  text-transform: lowercase;
+  color: #8c8c8c;
+}
+
+.App .Target {
+  padding: 12px 24px;
+  margin: 0;
+  transition: all ease .4s;
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+  line-height: 24px;
+  position: relative;
+}
+
+.App .Target:hover {
+  background-color: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  padding-left: 28px;
+}
+
+.App .Target:hover .Target__name {
+  color: #0ADBDB;
+}
+
+.App .Target:hover .Target__location {
+  color: #fff;
+}
+
+.Target__location {
+  position: absolute;
+  top: 12px;
+  right: 24px;
+  color: #5d5d5d;
+  font-family: monospace;
+  transition: all ease .4s;
+}
+
+.Target__name {
+  transition: all ease .4s;
+}
+
+.Target__probability {
+  color: #8c8c8c;
+}
+
+.Chart {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  width: 136px;
+  height: 4px;
+  border-right: 1px solid #000;
+  height: 3px;
+  background-color: #1a1a1a;
+}
+
+.Chart .Bar {
+  height: 1px;
+  background-color: #fff;
+  position: relative;
+  top: 1px;
+}
+
+.Bar[data-probability="very high"] {
+  background-color: #BC090C;
+}
+
+.Bar[data-probability="high"] {
+  background-color: #fe7dd5;
+}
+
+.Bar[data-probability="medium"] {
+  background-color: #0B99E0;
+}
+
+.Bar[data-probability="low"] {
+  background-color: #0CF4AF;
+}
+
+
+@media (max-width: 1024px) {
+  .App__header {
+    height: 100%;
+    z-index: 1;
+  }
+
+  .App .Batlogo--container {
+    right: 4px;
+    left: auto;
+    margin-left: 0;
+    top: 50%;
+    margin-top: -18px;
+  }
+
+  .gmnoprint {
+    display: none;
+  }
+
+  .App .Batman--info {
+    left: 12px;
+  }
+}
+
+@media (max-width: 790px) {
+  .App__title {
+    display: none;
+  }
+
+  .App .Batman--info {
+    width: 308px;
+  }
+}
+
+@media (max-width: 700px) {
+  .App__current-position__prefix {
+    display: none;
+  }
+
+  .App .Batman--info {
+    width: 180px;
+  }
+}
+
+@media (max-width: 570px) {
+  .App .Batman--info {
+    top: auto;
+    left: auto;
+    bottom: 10px;
+    right: 86px;
+  }
+
+  .App .Batlogo--container {
+    top: auto;
+    margin-top: 0;
+    bottom: 0px;
+  }
+
+  .App .Search {
+    right: auto;
+    left: 10px;
+  }
+}
+
+@media (max-width: 440px) {
+  .App .Villain {
+    width: calc(100% - 20px);
+    left: 0;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .Chart {
+    width: 20%;
+  }
+}
