@@ -5,7 +5,6 @@ import './index.css';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import { initializeStore } from './store';
-import registerServiceWorker from './registerServiceWorker';
 import load from './utils/load';
 import { GOOGLE_MAPS_API_KEY } from './env';
 import batman from './resources/batman';
@@ -49,6 +48,5 @@ load(`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}`)
       </Provider>,
       document.getElementById('root')
     );
-    registerServiceWorker();
   })
   .catch(console.log);
