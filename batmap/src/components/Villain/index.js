@@ -12,7 +12,7 @@ const Villain = ({ villain, selectTarget }) => (
       <h2>{ villain.name } is around</h2>
     </header>
     <div className="Targets">
-      <h3 className="Targets__title">Probable targets</h3>
+      <h3 className="Targets__title">Possible targets</h3>
       <ul className="Targets__list">
         { villain.targets.list.map((t, i) => (
           <li
@@ -21,12 +21,18 @@ const Villain = ({ villain, selectTarget }) => (
             key={i}>
             <h4 className="Target__name">{ t.place }</h4>
             <small className="Target__probability">
-              probability of attacking: { humanizeProbability(t.probability) } ({ displayFloat(t.probability) })
+              { humanizeProbability(t.probability) } probability ({ displayFloat(t.probability) })
             </small>
             <br />
             <small className="Target__location">
-              lat: { displayFloat(t.location.lat) }, lng: { displayFloat(t.location.lng) }
+              { displayFloat(t.location.lat) }, { displayFloat(t.location.lng) }
             </small>
+            <div className="Chart">
+              <div
+                className="Bar"
+                data-probability={humanizeProbability(t.probability)}
+                style={{width: `${parseInt(t.probability, 10)}%`}} />
+            </div>
           </li>
         )) }
       </ul>
