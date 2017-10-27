@@ -1,4 +1,4 @@
-#To install the dependencies
+# To install the dependencies
 
 Inside the batmap/ dir run:
 
@@ -12,7 +12,7 @@ or
 npm install
 ```
 
-#To run the project
+# To run the project
 
 Inside the batmap/ dir run:
 
@@ -24,7 +24,7 @@ or
 npm start
 ```
 
-#To build the production bundle
+# To build the production bundle
 
 Inside the batmap/ dir run:
 
