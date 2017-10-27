@@ -1,5 +1,7 @@
 #To install the dependencies
 
+Inside the batmap/ dir run:
+
 ```
 yarn
 ```
@@ -22,3 +24,14 @@ or
 npm start
 ```
 
+#To build the production bundle
+
+Inside the batmap/ dir run:
+
+```
+yarn build
+```
+or
+```
+npm run build
+```
